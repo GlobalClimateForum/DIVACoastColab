@@ -1,11 +1,17 @@
+colab_path = @__DIR__
+divacoast_path  = joinpath(@__DIR__, "..", "DIVACoast.jl")
+parent_path = joinpath(@__DIR__, "..")
+
+
 @info "Instantiating Dependencies"
 using Pkg
-Pkg.activate(".")
+Pkg.activate(colab_path)
 Pkg.instantiate()
 
 @info "Getting DIVACoast.jl"
-cd("../.")
+
+cd(parent_path)
 run(`git clone https://github.com/GlobalClimateForum/DIVACoast.jl`)
-cd("./DIVACoast.jl")
-include("./src/DIVACoast.jl")
+cd(divacoast_path)
+include("$divacoast_path/src/DIVACoast.jl")
 using .DIVACoast
