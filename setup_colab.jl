@@ -9,9 +9,7 @@ Pkg.activate(colab_path)
 Pkg.instantiate()
 
 @info "Getting DIVACoast.jl"
-
 cd(parent_path)
 run(`git clone https://github.com/GlobalClimateForum/DIVACoast.jl`)
-cd(divacoast_path)
-include("$divacoast_path/src/DIVACoast.jl")
-using .DIVACoast
+
+@info "You can now include DIVACoast.jl in your script."
